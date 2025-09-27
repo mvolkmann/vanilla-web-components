@@ -40,10 +40,11 @@ template.innerHTML = html`
 `;
 
 export class RadioGroup extends HTMLElement {
+  // This supports submitting a form value.
   static formAssociated = true;
+  #internals = this.attachInternals();
 
   #initialized = false;
-  #internals = this.attachInternals();
   labels = "";
   legend = "";
   name = "";
@@ -102,6 +103,8 @@ export class RadioGroup extends HTMLElement {
   set value(v) {
     this.#value = v;
     this.#fixValue();
+
+    // This sets the value submitted in a form.
     this.#internals.setFormValue(this.#value);
 
     const inputs = this.shadowRoot.querySelectorAll("input");

@@ -8,8 +8,9 @@ app.use("/*", serveStatic({ root: "./public" }));
 
 app.post("/my-form", async (c) => {
   const formData = await c.req.formData();
-  const color = formData.get("color");
-  return c.html(`<p>You selected ${color}.</p>`);
+  const primary = formData.get("primaryColor");
+  const secondary = formData.get("secondaryColor");
+  return c.html(`<p>You selected ${primary} and ${secondary}.</p>`);
 });
 
 export default app;

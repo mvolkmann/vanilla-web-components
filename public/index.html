@@ -27,6 +27,11 @@
         }
       };
     </script>
+    <style>
+      radio-group {
+        display: block;
+      }
+    </style>
   </head>
   <body>
     <hello-world1></hello-world1>
@@ -61,14 +66,23 @@
     <br />
     <form action="/my-form" method="post">
       <radio-group
-        legend="Colors"
+        legend="Primary Color"
         labels="Red,Green,Blue"
-        name="color"
-        value="blue"
+        name="primaryColor"
+        value="red"
         values="red,green,blue"
       >
-        <div slot="before">Choose a color for your new car.</div>
-        <div slot="after">Don't choose a color you will regret!</div>
+        <div slot="before">Choose a primary color.</div>
+        <div slot="after">This will the most used color.</div>
+      </radio-group>
+      <radio-group
+        legend="Secondary Color"
+        labels="Red,Green,Blue"
+        name="secondaryColor"
+        value="green"
+        values="red,green,blue"
+      >
+        <div slot="before">Choose a secondary color.</div>
       </radio-group>
       <button type="submit">Submit</button>
     </form>
