@@ -1,0 +1,15 @@
+{
+  "name": "vanilla",
+  "version": "1.0.0",
+  "main": "index.html",
+  "scripts": {
+    "dev": "bun --watch run server.js",
+    "reinstall": "rm -rf node_modules bun.lock && bun install"
+  },
+  "dependencies": {
+    "hono": "^4.4.7"
+  },
+  "devDependencies": {
+    "vite": "^7.1.2"
+  }
+}

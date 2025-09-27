@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <script src="attribute-handling.js" type="module"></script>
+    <script src="car-table.js" type="module"></script>
+    <script src="car-table-shadow.js" type="module"></script>
+    <script src="hello-world1.js" type="module"></script>
+    <script src="hello-world2.js" type="module"></script>
+    <script src="hello-world3.js" type="module"></script>
+    <script src="hello-world4.js" type="module"></script>
+    <script src="hello-world5.js" type="module"></script>
+    <script src="radio-group.js" type="module"></script>
+    <script>
+      const html = String.raw;
+
+      window.onload = () => {
+        const cars = [
+          { make: "MINI", model: "Cooper", year: 2015 },
+          { make: "Subaru", model: "Forester", year: 2025 },
+        ];
+        document.querySelector("car-table").cars = cars;
+        document.querySelector("car-table-shadow").cars = cars;
+
+        const carTables = document.querySelectorAll("car-table-shadow");
+        for (const carTable of carTables) {
+          const table = carTable.shadowRoot.querySelector("table");
+          console.log("index.html: table =", table);
+        }
+      };
+    </script>
+  </head>
+  <body>
+    <hello-world1></hello-world1>
+    <hello-world2 name="Mark"></hello-world2>
+    <hello-world3 name="Tami"></hello-world3>
+    <hello-world4 name="Alpha"></hello-world4>
+    <hello-world5 name="Alpha"></hello-world5>
+
+    <car-table></car-table>
+    <br />
+    <car-table-shadow></car-table-shadow>
+    <br />
+
+    <attribute-handling
+      car='{"make": "MINI", "model": "Cooper", "year": 2015}'
+      colors="red,blue,green"
+      score="100"
+    ></attribute-handling>
+    <attribute-handling
+      car='{"make": "MINI", "model": "Cooper", "year": 2015}'
+      colors="red,blue,green"
+    ></attribute-handling>
+    <attribute-handling
+      car='{"make": "MINI", "model": "Cooper", "year": 2015}'
+      score="100"
+    ></attribute-handling>
+    <attribute-handling
+      colors="red,blue,green"
+      score="100"
+    ></attribute-handling>
+    <attribute-handling car="Bad Value"></attribute-handling>
+    <br />
+    <form action="/my-form" method="post">
+      <radio-group
+        legend="Colors"
+        labels="Red,Green,Blue"
+        name="color"
+        value="blue"
+        values="red,green,blue"
+      >
+        <div slot="before">Choose a color for your new car.</div>
+        <div slot="after">Don't choose a color you will regret!</div>
+      </radio-group>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>
