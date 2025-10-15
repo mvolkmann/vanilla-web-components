@@ -45,6 +45,7 @@ export class RadioGroup extends HTMLElement {
   #internals = this.attachInternals();
 
   #initialized = false;
+  #initialValue = "";
   labels = "";
   legend = "";
   name = "";
@@ -94,6 +95,19 @@ export class RadioGroup extends HTMLElement {
     if (!this.values.includes(v)) {
       this.#value = this.values.split(",")[0];
     }
+  }
+
+  // This method is called automatically if
+  // the component is nested in form element AND
+  // the static property formAssociated is true.
+  formAssociatedCallback() {
+    this.#initialValue = this.value;
+  }
+
+  // This method is called automatically when a reset button
+  // inside the containing form element is clicked.
+  formResetCallback() {
+    this.value = this.#initialValue;
   }
 
   get value() {
