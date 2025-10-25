@@ -26,7 +26,7 @@ class AttributeHandling extends HTMLElement {
       try {
         car = JSON.parse(car);
       } catch (error) {
-        //console.error(error);
+        console.error(error);
         car = null;
       }
     }
