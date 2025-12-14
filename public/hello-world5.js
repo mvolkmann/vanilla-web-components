@@ -25,7 +25,7 @@ class HelloWorld5 extends HTMLElement {
   }
 
   render() {
-    const name = this.#name ?? "World";
+    const name = this.#name || "World";
     this.innerHTML = `<p>Hello, ${name}!</p>`;
   }
 }
