@@ -32,9 +32,9 @@ template.innerHTML = html`
     }
   </style>
   <fieldset>
-    <legend>provided by render method</legend>
+    <legend></legend>
     <slot name="before"></slot>
-    <div>provided by render method</div>
+    <div></div>
     <slot name="after"></slot>
   </fieldset>
 `;
@@ -44,7 +44,7 @@ export class RadioGroup extends HTMLElement {
   static formAssociated = true;
   #internals = this.attachInternals();
 
-  #initialized = false;
+  #connected = false;
   #initialValue = "";
   labels = "";
   legend = "";
@@ -65,7 +65,7 @@ export class RadioGroup extends HTMLElement {
     this[attrName] = newValue;
     // This check avoids re-rendering after
     // each attribute receives its initial value.
-    if (this.#initialized) this.render();
+    if (this.#connected) this.render();
   }
 
   connectedCallback() {
@@ -74,11 +74,9 @@ export class RadioGroup extends HTMLElement {
     this.name = this.getAttribute("name");
     this.value = this.getAttribute("value");
     this.values = this.getAttribute("values");
-
-    //if (!name) throw new CustomError('name is a required attribute');
+    if (!this.name) throw new Error("name is a required attribute");
 
     this.render();
-    this.#initialized = true;
 
     const inputs = this.shadowRoot.querySelectorAll("input");
     for (const input of inputs) {
@@ -86,6 +84,8 @@ export class RadioGroup extends HTMLElement {
         this.value = event.target.value;
       });
     }
+
+    this.#connected = true;
   }
 
   // This handles the case when the specified value
