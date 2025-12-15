@@ -65,7 +65,9 @@ export class RadioGroup extends HTMLElement {
     this[attrName] = newValue;
     // This check avoids re-rendering after
     // each attribute receives its initial value.
-    if (this.#connected) this.render();
+    if (this.#connected && attrName !== "value") {
+      this.render();
+    }
   }
 
   connectedCallback() {
