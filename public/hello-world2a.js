@@ -5,7 +5,7 @@ class HelloWorld2a extends HTMLElement {
   }
 
   connectedCallback() {
-    const name = this.getAttribute("name") ?? "World";
+    const name = this.getAttribute("name") || "World";
     this.shadowRoot.innerHTML = `
       <style>
         div {
