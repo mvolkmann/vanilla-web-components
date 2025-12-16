@@ -5,6 +5,11 @@ class HelloWorld5 extends HTMLElement {
     return ["name"];
   }
 
+  constructor() {
+    super();
+    this.attachShadow({ mode: "open" });
+  }
+
   attributeChangedCallback(name, _oldValue, newValue) {
     if (name === "name") this.name = newValue; // invokes setter below
   }
@@ -26,7 +31,7 @@ class HelloWorld5 extends HTMLElement {
 
   render() {
     const name = this.#name || "World";
-    this.innerHTML = `<p>Hello, ${name}!</p>`;
+    this.shadowRoot.innerHTML = `<p part="greeting">Hello, ${name}!</p>`;
   }
 }
 
