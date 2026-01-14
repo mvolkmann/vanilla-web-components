@@ -41,16 +41,22 @@ class CarTableShadow extends HTMLElement {
 
   set cars(cars) {
     this.#cars = cars;
-    const tbody = this.shadowRoot.querySelector("tbody");
-    // prettier-ignore
-    tbody.innerHTML = cars.map((car) => `
-      <tr>
-        <td>${car.make}</td>
-        <td>${car.model}</td>
-        <td>${car.year}</td>
-      </tr>
-    `).join("");
+    const tbody = this.querySelector("tbody");
+    tbody.innerHTML = ""; // clears all existing rows
+    for (const car of cars) {
+      tbody.appendChild(makeRow(car.make, car.model, car.year));
+    }
   }
+}
+
+function makeRow(...values) {
+  const tr = document.createElement("tr");
+  for (const value of values) {
+    const cell = document.createElement("td");
+    cell.textContent = value;
+    tr.appendChild(cell);
+  }
+  return tr;
 }
 
 customElements.define("car-table-shadow", CarTableShadow);
