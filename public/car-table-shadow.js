@@ -41,7 +41,7 @@ class CarTableShadow extends HTMLElement {
 
   set cars(cars) {
     this.#cars = cars;
-    const tbody = this.querySelector("tbody");
+    const tbody = this.shadowRoot.querySelector("tbody");
     tbody.innerHTML = ""; // clears all existing rows
     for (const car of cars) {
       tbody.appendChild(makeRow(car.make, car.model, car.year));

@@ -30,8 +30,10 @@ class HelloWorld5 extends HTMLElement {
   }
 
   render() {
-    const name = this.#name || "World";
-    this.shadowRoot.innerHTML = `<p part="greeting">Hello, ${name}!</p>`;
+    const p = document.createElement("p");
+    p.setAttribute("part", "greeting");
+    p.textContent = `Hello, ${this.#name || "World"}!`;
+    this.shadowRoot.replaceChildren(p);
   }
 }
 
