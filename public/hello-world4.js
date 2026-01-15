@@ -21,7 +21,9 @@ class HelloWorld4 extends HTMLElement {
 
   render() {
     const name = this.getAttribute("name") || "World";
-    this.innerHTML = `<p>Hello, ${name}!</p>`;
+    const p = document.createElement("p");
+    p.textContent = `Hello, ${name}!`;
+    this.replaceChildren(p);
   }
 }
 
