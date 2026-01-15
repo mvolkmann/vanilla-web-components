@@ -1,3 +1,18 @@
+const sharedStyles = new CSSStyleSheet();
+sharedStyles.replaceSync(`
+  table {
+    border-collapse: collapse;
+    font-family: sans-serif;
+  }
+  th {
+    background-color: lightcoral;
+  } 
+  th, td {
+    border: 1px solid black;
+    padding: 0.5rem;
+  }
+`);
+
 class CarTableShadow extends HTMLElement {
   #cars = [];
 
@@ -7,21 +22,8 @@ class CarTableShadow extends HTMLElement {
   }
 
   connectedCallback() {
+    this.shadowRoot.adoptedStyleSheets = [sharedStyles];
     this.shadowRoot.innerHTML = html`
-      <style>
-        table {
-          border-collapse: collapse;
-          font-family: sans-serif;
-        }
-        th {
-          background-color: cornflowerblue;
-        }
-        th,
-        td {
-          border: 1px solid black;
-          padding: 0.5rem;
-        }
-      </style>
       <table>
         <thead>
           <tr>
