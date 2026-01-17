@@ -38,8 +38,8 @@ template.innerHTML = html`
 /**
  * This is a counter web component.
  * TODO: Are this JSDoc comments necessary for CEM?
- * @attr {number} [count=3] - initial count
- * @property {number} count - current count
+ * @attr {number} count - initial count
+ * @prop {number} [count=3] - current count
  * @tag my-counter
  */
 class MyCounter extends HTMLElement {

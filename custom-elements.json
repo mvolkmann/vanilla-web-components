@@ -1,0 +1,596 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "server.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "app",
+          "default": "new Hono()"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "name": "app",
+            "module": "server.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/attribute-handling.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "AttributeHandling",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "car"
+            },
+            {
+              "name": "colors"
+            },
+            {
+              "name": "score"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "attribute-handling",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "attribute-handling",
+          "declaration": {
+            "name": "AttributeHandling",
+            "module": "public/attribute-handling.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/car-table-shadow.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CarTableShadow",
+          "members": [
+            {
+              "kind": "field",
+              "name": "#cars",
+              "privacy": "private",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "cars"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "car-table-shadow",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "car-table-shadow",
+          "declaration": {
+            "name": "CarTableShadow",
+            "module": "public/car-table-shadow.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/car-table.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "CarTable",
+          "members": [
+            {
+              "kind": "field",
+              "name": "#cars",
+              "privacy": "private",
+              "type": {
+                "text": "array"
+              },
+              "default": "[]"
+            },
+            {
+              "kind": "field",
+              "name": "cars"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "car-table",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "car-table",
+          "declaration": {
+            "name": "CarTable",
+            "module": "public/car-table.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world1.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld1",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world1",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world1",
+          "declaration": {
+            "name": "HelloWorld1",
+            "module": "public/hello-world1.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world2.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld2",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world2",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world2",
+          "declaration": {
+            "name": "HelloWorld2",
+            "module": "public/hello-world2.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world2a.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld2a",
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world2a",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world2a",
+          "declaration": {
+            "name": "HelloWorld2a",
+            "module": "public/hello-world2a.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world3.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld3",
+          "members": [
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world3",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world3",
+          "declaration": {
+            "name": "HelloWorld3",
+            "module": "public/hello-world3.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world4.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld4",
+          "members": [
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world4",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world4",
+          "declaration": {
+            "name": "HelloWorld4",
+            "module": "public/hello-world4.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/hello-world5.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "HelloWorld5",
+          "members": [
+            {
+              "kind": "field",
+              "name": "#name",
+              "privacy": "private",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "name"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "name"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "hello-world5",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "hello-world5",
+          "declaration": {
+            "name": "HelloWorld5",
+            "module": "public/hello-world5.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/my-counter.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "This is a counter web component.\nTODO: Are this JSDoc comments necessary for CEM?",
+          "name": "MyCounter",
+          "members": [
+            {
+              "kind": "field",
+              "name": "#count",
+              "privacy": "private",
+              "type": {
+                "text": "number"
+              },
+              "default": "0"
+            },
+            {
+              "kind": "field",
+              "name": "#decBtn",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#span",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "decrement"
+            },
+            {
+              "kind": "method",
+              "name": "increment"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            },
+            {
+              "kind": "method",
+              "name": "#update",
+              "privacy": "private",
+              "parameters": [
+                {
+                  "name": "delta"
+                }
+              ]
+            },
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "current count",
+              "name": "count",
+              "default": "3",
+              "kind": "field"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "number"
+              },
+              "description": "initial count",
+              "name": "count"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "my-counter",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "my-counter",
+          "declaration": {
+            "name": "MyCounter",
+            "module": "public/my-counter.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "public/radio-group.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "RadioGroup",
+          "members": [
+            {
+              "kind": "field",
+              "name": "formAssociated",
+              "type": {
+                "text": "boolean"
+              },
+              "static": true,
+              "default": "true"
+            },
+            {
+              "kind": "field",
+              "name": "#internals",
+              "privacy": "private"
+            },
+            {
+              "kind": "field",
+              "name": "#connected",
+              "privacy": "private",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false"
+            },
+            {
+              "kind": "field",
+              "name": "#initialValue",
+              "privacy": "private",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "labels",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "legend",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "name",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "values",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "field",
+              "name": "#value",
+              "privacy": "private",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"\""
+            },
+            {
+              "kind": "method",
+              "name": "#fixValue",
+              "privacy": "private"
+            },
+            {
+              "kind": "method",
+              "name": "formAssociatedCallback"
+            },
+            {
+              "kind": "method",
+              "name": "formResetCallback"
+            },
+            {
+              "kind": "field",
+              "name": "value"
+            },
+            {
+              "kind": "method",
+              "name": "makeButtons"
+            },
+            {
+              "kind": "method",
+              "name": "render"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "labels"
+            },
+            {
+              "name": "legend"
+            },
+            {
+              "name": "name"
+            },
+            {
+              "name": "value"
+            },
+            {
+              "name": "values"
+            }
+          ],
+          "superclass": {
+            "name": "HTMLElement"
+          },
+          "tagName": "radio-group",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "RadioGroup",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "public/radio-group.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "radio-group",
+          "declaration": {
+            "name": "RadioGroup",
+            "module": "public/radio-group.js"
+          }
+        }
+      ]
+    }
+  ]
+}
