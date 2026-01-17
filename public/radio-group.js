@@ -4,14 +4,14 @@ const template = document.createElement("template");
 template.innerHTML = html`
   <style>
     fieldset {
-      border-color: var(--border-color, "black");
+      border-color: var(--border-color, black);
       display: inline-flex;
       flex-direction: column;
       align-items: start;
       gap: 0.5rem;
 
       > legend {
-        color: var(--legend-color, "black");
+        color: var(--legend-color, black);
       }
 
       > div {
@@ -74,8 +74,8 @@ export class RadioGroup extends HTMLElement {
     this.labels = this.getAttribute("labels");
     this.legend = this.getAttribute("legend");
     this.name = this.getAttribute("name");
-    this.value = this.getAttribute("value");
     this.values = this.getAttribute("values");
+    this.value = this.getAttribute("value");
     if (!this.name) throw new Error("name is a required attribute");
 
     this.render();
