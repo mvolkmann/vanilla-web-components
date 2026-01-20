@@ -1,4 +1,3 @@
-console.log("my-counter.js: entered");
 const html = String.raw;
 
 const template = document.createElement("template");
@@ -56,7 +55,6 @@ class MyCounter extends HTMLElement {
   }
 
   render() {
-    console.log("my-counter.js render: entered");
     const dom = template.content.cloneNode(true);
     const [decBtn, incBtn] = dom.querySelectorAll("button");
     this.#decBtn = decBtn;

@@ -1,9 +1,15 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <style>
       hello-world5::part(greeting) {
         color: blue;
+      }
+      toggle-buttons {
+        --button-bg-color: orange;
+        --button-color: cornflowerblue;
+        --button-selected-bg-color: cornflowerblue;
+        --button-selected-color: orange;
       }
     </style>
     <!--
@@ -18,6 +24,7 @@
     <!-- <script src="hello-world4.js" type="module"></script> -->
     <script src="hello-world5.js" type="module"></script>
     <script src="radio-group.js" type="module"></script>
+    <script src="toggle-buttons.js" type="module"></script>
     <script>
       const html = String.raw;
 
@@ -28,12 +35,6 @@
         ];
         document.querySelector("car-table").cars = cars;
         document.querySelector("car-table-shadow").cars = cars;
-
-        const carTables = document.querySelectorAll("car-table-shadow");
-        for (const carTable of carTables) {
-          const table = carTable.shadowRoot.querySelector("table");
-          console.log("index.html: table =", table);
-        }
       };
     </script>
     <style>
@@ -50,11 +51,19 @@
     <hello-world4 name="Alpha"></hello-world4>
   -->
     <hello-world5 name="Alpha"></hello-world5>
+    <hello-world5 name="Beta"></hello-world5>
 
     <car-table></car-table>
     <br />
     <car-table-shadow></car-table-shadow>
     <br />
+
+    <span>Before buttons</span>
+    <toggle-buttons
+      labels="Baseball,Basketball,Football,Hockey"
+      value="Football"
+    ></toggle-buttons>
+    <span>After buttons</span>
 
     <!--
     <attribute-handling
