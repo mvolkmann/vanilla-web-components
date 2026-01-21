@@ -72,10 +72,7 @@ class ToggleButtons extends HTMLElement {
     value = value.trim();
     this.#value = value;
     this.setAttribute("value", value);
-    for (const button of this.shadowRoot.querySelectorAll("button")) {
-      const label = button.textContent;
-      button.classList.toggle("selected", label === value);
-    }
+    this.updateSelected();
     this.dispatchEvent(
       new CustomEvent("change", {
         bubbles: true, // up DOM tree
@@ -95,6 +92,14 @@ class ToggleButtons extends HTMLElement {
       button.textContent = label.trim();
       if (label === value) button.classList.add("selected");
       root.appendChild(button);
+    }
+  }
+
+  updateSelected() {
+    const value = this.value;
+    for (const button of this.shadowRoot.querySelectorAll("button")) {
+      const label = button.textContent;
+      button.classList.toggle("selected", label === value);
     }
   }
 }
