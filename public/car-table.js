@@ -1,3 +1,5 @@
+const html = String.raw;
+
 class CarTable extends HTMLElement {
   #cars = [];
 

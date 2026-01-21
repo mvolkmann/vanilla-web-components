@@ -76,6 +76,13 @@ class ToggleButtons extends HTMLElement {
       const label = button.textContent;
       button.classList.toggle("selected", label === value);
     }
+    this.dispatchEvent(
+      new CustomEvent("change", {
+        bubbles: true, // up DOM tree
+        composed: true, // can pass through shadow DOM
+        detail: { value },
+      }),
+    );
   }
 
   render() {

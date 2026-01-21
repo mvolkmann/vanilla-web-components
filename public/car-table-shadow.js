@@ -1,3 +1,4 @@
+const html = String.raw;
 const sharedStyles = new CSSStyleSheet();
 sharedStyles.replaceSync(`
   table {

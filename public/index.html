@@ -25,17 +25,22 @@
     <script src="hello-world5.js" type="module"></script>
     <script src="radio-group.js" type="module"></script>
     <script src="toggle-buttons.js" type="module"></script>
-    <script>
-      const html = String.raw;
+    <script type="module">
+      const cars = [
+        { make: "MINI", model: "Cooper", year: 2015 },
+        { make: "Subaru", model: "Forester", year: 2025 },
+      ];
+      document.querySelector("car-table").cars = cars;
+      document.querySelector("car-table-shadow").cars = cars;
 
-      window.onload = () => {
-        const cars = [
-          { make: "MINI", model: "Cooper", year: 2015 },
-          { make: "Subaru", model: "Forester", year: 2025 },
-        ];
-        document.querySelector("car-table").cars = cars;
-        document.querySelector("car-table-shadow").cars = cars;
-      };
+      const span = document.querySelector("#value");
+      const toggleButtons = document.querySelector("toggle-buttons");
+      span.textContent = toggleButtons.value;
+      document.body.addEventListener("change", (e) => {
+        if (e.target.localName === "toggle-buttons") {
+          span.textContent = e.detail.value;
+        }
+      });
     </script>
     <style>
       radio-group {
@@ -64,6 +69,7 @@
       value="Football"
     ></toggle-buttons>
     <span>After buttons</span>
+    <p>You selected <span id="value"></span>.</p>
 
     <!--
     <attribute-handling
