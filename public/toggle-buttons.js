@@ -98,8 +98,9 @@ class ToggleButtons extends HTMLElement {
   updateSelected() {
     const value = this.value;
     for (const button of this.shadowRoot.querySelectorAll("button")) {
-      const label = button.textContent;
-      button.classList.toggle("selected", label === value);
+      const match = button.textContent === value;
+      button.classList.toggle("selected", match);
+      if (!match) button.removeAttribute("class");
     }
   }
 }
