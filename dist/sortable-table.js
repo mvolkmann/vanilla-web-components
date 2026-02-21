@@ -104,6 +104,8 @@ class SortableTable extends HTMLElement {
         __classPrivateFieldSet(this, _SortableTable_properties, properties, "f");
         this.setAttribute("properties", properties);
         __classPrivateFieldSet(this, _SortableTable_propertyArray, properties.split(",").map((prop) => prop.trim()), "f");
+        // Trigger the property set method.
+        this.data = this.data;
     }
 }
 _SortableTable_data = new WeakMap(), _SortableTable_headings = new WeakMap(), _SortableTable_properties = new WeakMap(), _SortableTable_propertyArray = new WeakMap(), _SortableTable_sortAscending = new WeakMap(), _SortableTable_sortHeader = new WeakMap(), _SortableTable_instances = new WeakSet(), _SortableTable_makeTd = function _SortableTable_makeTd(dataIndex, prop) {

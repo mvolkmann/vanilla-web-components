@@ -107,6 +107,9 @@ class SortableTable extends HTMLElement {
     this.#properties = properties;
     this.setAttribute("properties", properties);
     this.#propertyArray = properties.split(",").map((prop) => prop.trim());
+
+    // Trigger the property set method.
+    this.data = this.data;
   }
 
   #makeTd(dataIndex: number, prop: string) {
