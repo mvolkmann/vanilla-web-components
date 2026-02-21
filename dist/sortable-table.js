@@ -39,12 +39,14 @@ template.innerHTML = html `
       }
     }
   </style>
+  <slot></slot>
   <table>
     <thead>
       <tr></tr>
     </thead>
     <tbody></tbody>
   </table>
+  <slot name="footnote"></slot>
 `;
 class SortableTable extends HTMLElement {
     static get observedAttributes() {
