@@ -4,6 +4,12 @@ const template = document.createElement("template");
 const html = String.raw;
 template.innerHTML = html`
   <style>
+    :host {
+      display: inline-block;
+    }
+    :host([hidden]) {
+      display: none;
+    }
     .sort-indicator {
       color: white;
       display: inline-block;
@@ -57,6 +63,9 @@ class SortableTable extends HTMLElement {
 
   connectedCallback() {
     this.shadowRoot!.appendChild(template.content.cloneNode(true));
+    if (!this.hasAttribute("title")) {
+      this.setAttribute("title", "sortable-table");
+    }
   }
 
   attributeChangedCallback(

@@ -132,10 +132,16 @@
     </form>
     -->
 
-    <sortable-table headings="Make,Model,Year" properties="make,model,year">
+    <sortable-table
+      headings="Make,Model,Year"
+      properties="make,model,year"
+      title="My Cars table"
+    >
       <h2>My Cars</h2>
       <p slot="footnote">Some of these cars are no longer owned.</p>
-      <slot></slot>
+    </sortable-table>
+
+    <sortable-table hidden headings="Foo,Bar,Baz" properties="foo,bar,baz">
     </sortable-table>
   </body>
 </html>
