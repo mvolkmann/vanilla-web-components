@@ -86,7 +86,7 @@ class SortableTable extends HTMLElement {
     this.#data = data;
     const tbody = this.shadowRoot!.querySelector("table tbody")!;
     tbody.innerHTML = "";
-    data.forEach((obj, index) => tbody.appendChild(this.makeTr(index)));
+    data.forEach((obj, index) => tbody.appendChild(this.#makeTr(index)));
   }
 
   set headings(headings: string) {
@@ -98,7 +98,7 @@ class SortableTable extends HTMLElement {
     const tr = this.shadowRoot!.querySelector("table thead tr")!;
     tr!.innerHTML = "";
     const self = this;
-    values.forEach((heading, i) => tr.appendChild(self.makeTh(heading, i)));
+    values.forEach((heading, i) => tr.appendChild(self.#makeTh(heading, i)));
   }
 
   set properties(properties: string) {
@@ -109,20 +109,19 @@ class SortableTable extends HTMLElement {
     this.#propertyArray = properties.split(",").map((prop) => prop.trim());
   }
 
-  makeTd(dataIndex: number, prop: string) {
+  #makeTd(dataIndex: number, prop: string) {
     const td = document.createElement("td");
     const value = this.data[dataIndex][prop];
     td.textContent = String(value);
     return td;
   }
 
-  makeTh(heading: string, index: number) {
+  #makeTh(heading: string, index: number) {
     const th = document.createElement("th");
     th.setAttribute("aria-label", `sort by ${heading}`);
     th.setAttribute("data-property", this.#propertyArray[index]);
     th.setAttribute("role", "button");
-    th.setAttribute("tabindex", "0"); //TODO: need this?
-    th.addEventListener("click", this.sort.bind(this));
+    th.addEventListener("click", this.#sort.bind(this));
 
     let span = document.createElement("span");
     span.textContent = heading;
@@ -135,15 +134,15 @@ class SortableTable extends HTMLElement {
     return th;
   }
 
-  makeTr(dataIndex: number) {
+  #makeTr(dataIndex: number) {
     const tr = document.createElement("tr");
     for (const propName of this.#propertyArray) {
-      tr.appendChild(this.makeTd(dataIndex, propName));
+      tr.appendChild(this.#makeTd(dataIndex, propName));
     }
     return tr;
   }
 
-  sort(event: Event) {
+  #sort(event: Event) {
     let th = event.target! as HTMLTableCellElement;
     const property = th.getAttribute("data-property")!;
     this.#sortAscending = th === this.#sortHeader ? !this.#sortAscending : true;
@@ -160,8 +159,8 @@ class SortableTable extends HTMLElement {
       return this.#sortAscending ? compare : -compare;
     });
 
-    // Trigger the property set method by assigning a clone.
-    this.data = [...this.data];
+    // Trigger the property set method.
+    this.data = this.data;
 
     // Clear sort indicator from previously selected header.
     if (this.#sortHeader) {
