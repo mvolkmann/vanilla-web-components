@@ -25,9 +25,10 @@
     <!-- <script src="hello-world2a.js" type="module"></script> -->
     <!-- <script src="hello-world3.js" type="module"></script> -->
     <!-- <script src="hello-world4.js" type="module"></script> -->
-    <script src="hello-world5.js" type="module"></script>
-    <script src="radio-group.js" type="module"></script>
-    <script src="toggle-buttons.js" type="module"></script>
+    <!-- <script src="hello-world5.js" type="module"></script> -->
+    <!-- <script src="radio-group.js" type="module"></script> -->
+    <script src="sortable-table.js" type="module"></script>
+    <!-- <script src="toggle-buttons.js" type="module"></script> -->
     <script type="module">
       const cars = [
         { make: "MINI", model: "Cooper", year: 2015 },
@@ -36,6 +37,7 @@
       document.querySelector("car-table").cars = cars;
       document.querySelector("car-table-shadow").cars = cars;
 
+      /*
       const span = document.querySelector("#value");
       const toggleButtons = document.querySelector("toggle-buttons");
       span.textContent = toggleButtons.value;
@@ -44,6 +46,12 @@
           span.textContent = e.detail.value;
         }
       });
+      */
+
+      const sortableTable = document.querySelector("sortable-table");
+      if (sortableTable) {
+        sortableTable.data = cars;
+      }
     </script>
     <style>
       radio-group {
@@ -57,15 +65,16 @@
     <hello-world2a name="Mark"></hello-world2a>
     <hello-world3 name="Tami"></hello-world3>
     <hello-world4 name="Alpha"></hello-world4>
-  -->
     <hello-world5 name="Alpha"></hello-world5>
     <hello-world5 name="Beta"></hello-world5>
+    -->
 
     <car-table></car-table>
     <br />
     <car-table-shadow></car-table-shadow>
     <br />
 
+    <!--
     <span>Before buttons</span>
     <toggle-buttons
       labels="Baseball,Basketball,Football,Hockey"
@@ -74,7 +83,6 @@
     <span>After buttons</span>
     <p>You selected <span id="value"></span>.</p>
 
-    <!--
     <attribute-handling
       car='{"make": "MINI", "model": "Cooper", "year": 2015}'
       colors="red,blue,green"
@@ -118,5 +126,10 @@
       <button type="reset">Reset</button>
     </form>
     -->
+
+    <sortable-table
+      headings="Make,Model,Year"
+      properties="make,model,year"
+    ></sortable-table>
   </body>
 </html>

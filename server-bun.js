@@ -1,10 +1,9 @@
 import { Hono } from "hono";
-import { serveStatic } from "@hono/node-server/serve-static";
-import { serve } from "@hono/node-server";
+import { serveStatic } from "hono/bun";
 
 const app = new Hono();
 
-// Serve static files.
+// Serve static files from the public directory.
 app.use("/*", serveStatic({ root: "./public" }));
 app.use("/*", serveStatic({ root: "./dist" }));
 
@@ -15,11 +14,4 @@ app.post("/my-form", async (c) => {
   return c.html(`<p>You selected ${primary} and ${secondary}.</p>`);
 });
 
-// Start the server
-const port = 3000;
-console.log(`Server is running on http://localhost:${port}`);
-
-serve({
-  fetch: app.fetch,
-  port,
-});
+export default app;
