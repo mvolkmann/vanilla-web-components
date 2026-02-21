@@ -11,8 +11,8 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
 var _SortableTable_instances, _SortableTable_data, _SortableTable_headings, _SortableTable_properties, _SortableTable_propertyArray, _SortableTable_sortAscending, _SortableTable_sortHeader, _SortableTable_makeTd, _SortableTable_makeTh, _SortableTable_makeTr, _SortableTable_sort;
-const html = String.raw;
 const template = document.createElement("template");
+const html = String.raw;
 template.innerHTML = html `
   <style>
     .sort-indicator {
@@ -85,7 +85,7 @@ class SortableTable extends HTMLElement {
         __classPrivateFieldSet(this, _SortableTable_data, data, "f");
         const tbody = this.shadowRoot.querySelector("table tbody");
         tbody.innerHTML = "";
-        data.forEach((obj, index) => tbody.appendChild(__classPrivateFieldGet(this, _SortableTable_instances, "m", _SortableTable_makeTr).call(this, index)));
+        data.forEach((_obj, index) => tbody.appendChild(__classPrivateFieldGet(this, _SortableTable_instances, "m", _SortableTable_makeTr).call(this, index)));
     }
     set headings(headings) {
         if (headings === __classPrivateFieldGet(this, _SortableTable_headings, "f"))
@@ -104,7 +104,7 @@ class SortableTable extends HTMLElement {
         __classPrivateFieldSet(this, _SortableTable_properties, properties, "f");
         this.setAttribute("properties", properties);
         __classPrivateFieldSet(this, _SortableTable_propertyArray, properties.split(",").map((prop) => prop.trim()), "f");
-        // Trigger the property set method.
+        // Trigger "set data".
         this.data = this.data;
     }
 }
@@ -115,9 +115,9 @@ _SortableTable_data = new WeakMap(), _SortableTable_headings = new WeakMap(), _S
     return td;
 }, _SortableTable_makeTh = function _SortableTable_makeTh(heading, index) {
     const th = document.createElement("th");
-    th.setAttribute("aria-label", `sort by ${heading}`);
     th.setAttribute("data-property", __classPrivateFieldGet(this, _SortableTable_propertyArray, "f")[index]);
     th.setAttribute("role", "button");
+    th.setAttribute("title", `sort by ${heading}`);
     th.addEventListener("click", __classPrivateFieldGet(this, _SortableTable_instances, "m", _SortableTable_sort).bind(this));
     let span = document.createElement("span");
     span.textContent = heading;
@@ -136,7 +136,7 @@ _SortableTable_data = new WeakMap(), _SortableTable_headings = new WeakMap(), _S
     let th = event.target;
     const property = th.getAttribute("data-property");
     __classPrivateFieldSet(this, _SortableTable_sortAscending, th === __classPrivateFieldGet(this, _SortableTable_sortHeader, "f") ? !__classPrivateFieldGet(this, _SortableTable_sortAscending, "f") : true, "f");
-    this.data.sort((a, b) => {
+    __classPrivateFieldGet(this, _SortableTable_data, "f").sort((a, b) => {
         const aValue = a[property];
         const bValue = b[property];
         let compare = typeof aValue === "string"
@@ -146,7 +146,7 @@ _SortableTable_data = new WeakMap(), _SortableTable_headings = new WeakMap(), _S
                 : 0;
         return __classPrivateFieldGet(this, _SortableTable_sortAscending, "f") ? compare : -compare;
     });
-    // Trigger the property set method.
+    // Trigger "set data".
     this.data = this.data;
     // Clear sort indicator from previously selected header.
     if (__classPrivateFieldGet(this, _SortableTable_sortHeader, "f")) {

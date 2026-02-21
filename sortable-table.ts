@@ -1,8 +1,7 @@
 type LooseObject = Record<string, unknown>;
 
-const html = String.raw;
-
 const template = document.createElement("template");
+const html = String.raw;
 template.innerHTML = html`
   <style>
     .sort-indicator {
@@ -86,7 +85,7 @@ class SortableTable extends HTMLElement {
     this.#data = data;
     const tbody = this.shadowRoot!.querySelector("table tbody")!;
     tbody.innerHTML = "";
-    data.forEach((obj, index) => tbody.appendChild(this.#makeTr(index)));
+    data.forEach((_obj, index) => tbody.appendChild(this.#makeTr(index)));
   }
 
   set headings(headings: string) {
@@ -108,7 +107,7 @@ class SortableTable extends HTMLElement {
     this.setAttribute("properties", properties);
     this.#propertyArray = properties.split(",").map((prop) => prop.trim());
 
-    // Trigger the property set method.
+    // Trigger "set data".
     this.data = this.data;
   }
 
@@ -121,9 +120,9 @@ class SortableTable extends HTMLElement {
 
   #makeTh(heading: string, index: number) {
     const th = document.createElement("th");
-    th.setAttribute("aria-label", `sort by ${heading}`);
     th.setAttribute("data-property", this.#propertyArray[index]);
     th.setAttribute("role", "button");
+    th.setAttribute("title", `sort by ${heading}`);
     th.addEventListener("click", this.#sort.bind(this));
 
     let span = document.createElement("span");
@@ -150,7 +149,7 @@ class SortableTable extends HTMLElement {
     const property = th.getAttribute("data-property")!;
     this.#sortAscending = th === this.#sortHeader ? !this.#sortAscending : true;
 
-    this.data.sort((a: LooseObject, b: LooseObject) => {
+    this.#data.sort((a: LooseObject, b: LooseObject) => {
       const aValue = a[property];
       const bValue = b[property];
       let compare =
@@ -162,7 +161,7 @@ class SortableTable extends HTMLElement {
       return this.#sortAscending ? compare : -compare;
     });
 
-    // Trigger the property set method.
+    // Trigger "set data".
     this.data = this.data;
 
     // Clear sort indicator from previously selected header.
