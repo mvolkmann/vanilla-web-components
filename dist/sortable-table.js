@@ -103,10 +103,10 @@ class SortableTable extends HTMLElement {
             return;
         __classPrivateFieldSet(this, _SortableTable_headings, headings, "f");
         this.setAttribute("headings", headings);
-        const values = headings.split(",").map((heading) => heading.trim());
         const tr = this.shadowRoot.querySelector("table thead tr");
         tr.innerHTML = "";
         const self = this;
+        const values = headings.split(",").map((heading) => heading.trim());
         values.forEach((heading, i) => tr.appendChild(__classPrivateFieldGet(self, _SortableTable_instances, "m", _SortableTable_makeTh).call(self, heading, i)));
     }
     set properties(properties) {
